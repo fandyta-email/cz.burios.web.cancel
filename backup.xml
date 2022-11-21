@@ -1,0 +1,42 @@
+<project name="cz.burios.web.cas" basedir="." default="archive.src">
+
+	<!--
+	<property name="project.home" value="C:/APPL/java/projects/WEB/github/fandyta/email/git/cz.burios.web.devel" />
+	-->
+	<property name="project.home" value="d:/APPL/java/projects/github/fandyta/email/git/cz.burios.web.cas" />
+	<property name="archive.local" value="c:/Users/burio/OneDrive/java/projects/github/fandyta/email" />
+	
+	<property name="project.root.dir" value="${project.home}" />
+	<property name="project.web-inf.dir" value="${project.root.dir}/WEB-INF" />
+	<property name="project.bin.dir" value="${project.root.dir}/WEB-INF/classes" />
+	<property name="project.lib.dir" value="${project.root.dir}/WEB-INF/lib" />
+
+	<property name="tomcat.bin.dir" value="${project.home}/WEB-INF/classes" />
+	<property name="tomcat.lib.dir" value="${project.home}/WEB-INF/lib" />
+
+	<!-- Check timestamp on files -->
+	<target name="prepare">
+		<tstamp>
+			<format property="date" pattern="yyyyMMdd-HHmm" />
+		</tstamp>
+	</target>
+
+	<target name="archive.src" depends="prepare" description="Archivate source files">
+		<zip destfile="${archive.local}/cz.burios.web.devel-${date}-src.zip" basedir="${project.home}">
+			<include name="src/**" />
+			<include name=".gitignore" />
+			<include name=".tern-project" />
+			<include name="backup.xml" />
+			<include name="pom.xml" />
+			<include name="README.md" />
+			
+			<exclude name=".classpath" />
+			<exclude name=".project" />
+			<exclude name=".git/**" />
+			<exclude name=".settings/**" />
+			<exclude name="target/**" />
+		</zip>
+	</target>
+
+	
+</project>

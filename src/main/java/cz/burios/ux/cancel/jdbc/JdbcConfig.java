@@ -1,4 +1,4 @@
-package cz.burios.ux.cas.jdbc;
+package cz.burios.ux.cancel.jdbc;
 
 import javax.sql.DataSource;
 

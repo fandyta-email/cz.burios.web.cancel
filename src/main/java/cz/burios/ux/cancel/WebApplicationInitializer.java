@@ -2,8 +2,8 @@ package cz.burios.ux.cancel;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import cz.burios.ux.cas.config.WebConfig;
-import cz.burios.ux.cas.jdbc.JdbcConfig;
+import cz.burios.ux.cancel.config.WebConfig;
+import cz.burios.ux.cancel.jdbc.JdbcConfig;
 
 public class WebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 

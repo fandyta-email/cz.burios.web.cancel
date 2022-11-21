@@ -1,4 +1,4 @@
-package cz.burios.ux.cas.config;
+package cz.burios.ux.cancel.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

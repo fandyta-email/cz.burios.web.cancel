@@ -1,4 +1,4 @@
-package cz.burios.ux.cas.controller;
+package cz.burios.ux.cancel.controller;
 
 import java.util.List;
 import java.util.Map;
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import cz.burios.ux.cas.jdbc.UsersRowMapper;
-import cz.burios.ux.cas.model.UserCredentials;
+import cz.burios.ux.cancel.jdbc.UsersRowMapper;
+import cz.burios.ux.cancel.model.UserCredentials;
 
 @Controller
 public class LoginController {
