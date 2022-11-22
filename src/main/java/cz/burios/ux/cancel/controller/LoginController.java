@@ -8,6 +8,8 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -55,14 +57,26 @@ public class LoginController {
 			JdbcTemplate jdbcTemplate = new JdbcTemplate(ds);
 			String userName = qp.getOrDefault("username", "");
 			String password = qp.getOrDefault("password", "");
-			final String query = "SELECT * FROM user_credentials WHERE USER_NAME = ? AND USER_PASSWORD = ?";
-			List<UserCredentials> data = jdbcTemplate.queryForStream(query, new UsersRowMapper(), userName, password).collect(Collectors.toList());
-			System.out.println("data: " + data);
+			System.out.println("demo(0):" + password);
+			final String query = "SELECT * FROM user_credentials WHERE USER_NAME = ?";
+			List<UserCredentials> data = jdbcTemplate.queryForStream(query, new UsersRowMapper(), userName).collect(Collectors.toList());
+			// System.out.println("data: " + data);
 			if (data == null || data.isEmpty()) {
 				view.addObject("errcode", "ERR_403");
 				view.setViewName("login") ;
 			} else {
-				view.setViewName("p/desktop");
+				BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+				System.out.println("password: " + password + "pwd: " + encoder.encode(password));
+				UserCredentials row = data.get(0);
+				String dbPassword = row.getUserPassword();
+				boolean ok = encoder.matches(password, dbPassword);
+				// System.out.println("ok:" + ok); 
+				if (ok) {
+					view.setViewName("p/desktop");
+				} else {
+					view.addObject("errcode", "ERR_403");
+					view.setViewName("login") ;					
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

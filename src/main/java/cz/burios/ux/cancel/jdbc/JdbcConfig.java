@@ -21,7 +21,7 @@ public class JdbcConfig {
 	@Bean
 	public DataSource mysqlDataSource() {
 		MysqlDataSource dataSource = new MysqlDataSource();
-		dataSource.setUrl("jdbc:mysql://localhost:3306/cas?useUnicode=true&characterEncoding=UTF8&useSSL=false");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/cancel?useUnicode=true&characterEncoding=UTF8&useSSL=false");
 		dataSource.setUser("root");
 		dataSource.setPassword("aCiesCz68");
 
