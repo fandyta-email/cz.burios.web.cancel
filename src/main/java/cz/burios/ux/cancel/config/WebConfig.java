@@ -3,34 +3,35 @@ package cz.burios.ux.cancel.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages="cz.burios.ux.cancel.controller")
-public class WebConfig implements WebMvcConfigurer {
-	
-	public WebConfig() {
-		System.out.println("WebConfig.WebConfig()");
+/*
+@ComponentScan({ 
+	"cz.burios.ux.cancel", 
+	"cz.burios.ux.cancel.entities",
+	"cz.burios.ux.cancel.repositories", 
+	"cz.burios.ux.cancel.services" 
+})
+*/
+public class WebConfig extends WebMvcConfigurerAdapter {
+
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/assets/**").addResourceLocations("/assets/");
 	}
 
 	@Bean
-	public ViewResolver viewResolver() {
-		InternalResourceViewResolver bean = new InternalResourceViewResolver();
-		bean.setViewClass(JstlView.class);
-		bean.setPrefix("/WEB-INF/jsp/");
-		bean.setSuffix(".jsp");
-		return bean;
-	}
-	
-	/*
-	 */
-	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/**").addResourceLocations("/");
+	public InternalResourceViewResolver viewResolver() {
+		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+		viewResolver.setViewClass(JstlView.class);
+		viewResolver.setPrefix("/WEB-INF/views/jsp/");
+		viewResolver.setSuffix(".jsp");
+		return viewResolver;
 	}
 }

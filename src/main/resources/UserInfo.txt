@@ -1,0 +1,54 @@
+[
+   {
+      "userId": "39ccc8616c7f4a37b0b38ffa0c76acf4",
+      "userName": "testadmin",
+      "userPass": "",
+      "hashedUserPass": "$2a$10$iTkSB2qrj56Aq./sS0lvWe9KHIndp94DnJf5tzxW6eZksu9ZJH6Gy",
+      "active": true,
+      "userRoles": [
+         {
+            "roleId": 1,
+            "roleName": "SITE_ADMIN"
+         }
+      ]
+   },
+   {
+      "userId": "9a3fb4e1582741caa9d6cd01abfe9104",
+      "userName": "teststaff",
+      "userPass": "",
+      "hashedUserPass": "$2a$10$iTkSB2qrj56Aq./sS0lvWe9KHIndp94DnJf5tzxW6eZksu9ZJH6Gy",
+      "active": true,
+      "userRoles": [
+         {
+            "roleId": 1,
+            "roleName": "SITE_SUPERVISOR"
+         }
+      ]
+   },
+   {
+      "userId": "9c49bc0bea0a4cebb7bcbe8093cfb1d3",
+      "userName": "testuser1",
+      "userPass": "",
+      "hashedUserPass": "$2a$10$iTkSB2qrj56Aq./sS0lvWe9KHIndp94DnJf5tzxW6eZksu9ZJH6Gy",
+      "active": true,
+      "userRoles": [
+         {
+            "roleId": 1,
+            "roleName": "SITE_USER"
+         }
+      ]
+   },
+   {
+      "userId": "e581ef0b1051496299f9c4d0bfac0f45",
+      "userName": "testuser2",
+      "userPass": "",
+      "hashedUserPass": "$2a$10$iTkSB2qrj56Aq./sS0lvWe9KHIndp94DnJf5tzxW6eZksu9ZJH6Gy",
+      "active": false,
+      "userRoles": [
+         {
+            "roleId": 1,
+            "roleName": "SITE_USER"
+         }
+      ]
+   }
+]

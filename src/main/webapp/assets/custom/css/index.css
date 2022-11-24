@@ -1,0 +1,56 @@
+.small-margin {
+   margin-top: 5px;
+   margin-bottom: 5px;   
+}
+
+.error-topmargin {
+   margin-top: 65px;
+}
+
+.required-mark {
+   color: red;
+}
+
+.warning-padding {
+   padding-left: 35px !important;
+   padding-right: 35px !important;
+}
+
+.content-box {
+   width: 100%;
+   float: left;
+   color: #34495e;
+   border: 1px solid #d4d4d4;
+   border-radius: 2px;
+   padding: 12px;
+   position: relative;
+   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+   margin-bottom: 30px;
+}
+
+.alert-padding {
+   padding-top: 3px !important;
+   padding-bottom: 3px !important;   
+}
+
+.vertical-placeholder {
+   padding-top: 35px;
+   padding-bottom: 25px;
+}
+
+.btn-topmargin {
+   margin-top: 10px;
+}
+
+.italic {
+   font-style: italic;
+}
+
+.search-section {
+   padding-top: 15px;
+   padding-bottom: 15px;
+}
+
+.radiobtn-marginbottom {
+   margin-bottom: 7px;
+}
