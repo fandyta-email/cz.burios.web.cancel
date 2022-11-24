@@ -12,6 +12,7 @@ public class Tester {
 			System.out.println("demo: " + pwd);
 			pwd = encoder.encode("fanDyta_89");
 			System.out.println("fanDyta_89: " + pwd);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -30,22 +30,18 @@ public class LoginUserServiceImpl implements LoginUserService {
 				}
 			}
 		}
-
 		return retVal;
 	}
 
 	@SuppressWarnings("unchecked")
 	private List<UserModel> loadAllAvailableUsers(String resourceName) {
 		List<UserModel> retVal = new ArrayList<UserModel>();
-
 		String userInfoAsText = ResourcesUtils.getResourceAsText(resourceName);
 		if (!StringUtils.isEmpty(userInfoAsText)) {
 			Gson gson = new Gson();
-
 			retVal = (ArrayList<UserModel>) gson.fromJson(userInfoAsText, new TypeToken<ArrayList<UserModel>>() {
 			}.getType());
 		}
-
 		return retVal;
 	}
 }

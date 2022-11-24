@@ -37,27 +37,22 @@ public class UserAuthenticationService implements AuthenticationProvider {
 		String password = authentication.getCredentials().toString();
 
 		if (name == null || name.length() <= 0) {
-			_logger.error("Authentication failed. User name is null or empty.");
+			System.err.println("Authentication failed. User name is null or empty.");
 			return retVal;
 		}
-
 		if (password == null || password.length() <= 0) {
-			_logger.error("Authentication failed. User password is null or empty.");
+			System.err.println("Authentication failed. User password is null or empty.");
 			return retVal;
 		}
-
 		UserModel authenticatedUser = this.authenticateUser(name, password);
 		if (authenticatedUser != null) {
 			boolean isUserActive = authenticatedUser.isActive();
 			if (!isUserActive) {
 				return null;
 			}
-
 			Authentication userAuth = createAuthentication(authenticatedUser, password);
-
 			return userAuth;
 		}
-
 		return null;
 	}
 
@@ -72,15 +67,10 @@ public class UserAuthenticationService implements AuthenticationProvider {
 		if (grantedAuths.size() == 0) {
 			return null;
 		}
-
 		credential = encryptPassword(credential);
-
-		_logger.debug("Creating authentication here...");
-
+		System.out.println("Creating authentication here...");
 		Authentication auth = new UsernamePasswordAuthenticationToken(userPrincipal, credential, grantedAuths);
-
-		_logger.debug("Creating authentication here... Done.");
-
+		System.out.println("Creating authentication here... Done.");
 		return auth;
 	}
 
@@ -88,20 +78,17 @@ public class UserAuthenticationService implements AuthenticationProvider {
 		UserModel user = userService.getLoginUser(userName);
 		if (user != null) {
 			String passEncrypted = user.getHashedUserPass();
-
 			if (SecurityUtils.passwordEquals(userPass, passEncrypted)) {
-				_logger.debug("Authentication Successful.");
+				System.out.println("Authentication Successful.");
 				return user;
 			}
 		}
-
 		return null;
 	}
 
 	private List<GrantedAuthority> createLoginUserAuthority(List<UserRoleModel> userRoles) {
 		List<GrantedAuthority> grantedAuths = new ArrayList<GrantedAuthority>();
 		Set<GrantedAuthority> uniqueAuths = new HashSet<GrantedAuthority>();
-
 		for (UserRoleModel userRole : userRoles) {
 			if (userRole.getRoleName().equals(UserRoleModel.ROLE_SITE_ADMIN)) {
 				uniqueAuths.add(new SimpleGrantedAuthority("ROLE_SITE_ADMIN"));
@@ -121,12 +108,10 @@ public class UserAuthenticationService implements AuthenticationProvider {
 				uniqueAuths.clear();
 			}
 		}
-
 		if (uniqueAuths.size() > 0) {
 			grantedAuths.addAll(uniqueAuths);
 			_logger.info("Number of roles: " + grantedAuths.size());
 		}
-
 		return grantedAuths;
 	}
 
@@ -134,10 +119,8 @@ public class UserAuthenticationService implements AuthenticationProvider {
 		String encryptedPass = "";
 		if (credential != null) {
 			String password = (String) credential;
-
 			encryptedPass = SecurityUtils.encryptPassword(password);
 		}
-
 		return encryptedPass;
 	}
 }
