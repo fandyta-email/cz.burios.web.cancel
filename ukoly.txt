@@ -1,0 +1,11 @@
+https://www.javatpoint.com/spring-security-xml-example
+
+- Deploy a Spring Boot WAR into a Tomcat Server
+https://www.baeldung.com/spring-boot-war-tomcat-deploy
+
+https://github.com/studygyaan/Login-Register-using-Spring-Boot
+https://xinghua24.github.io/SpringSecurity/Spring-Security-Form-Login/
+
+com.roytuts.spring.security.jdbc.authentication
+cz.burios.ux.cancel
+cz.burios.ux.devel
