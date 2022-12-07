@@ -20,8 +20,8 @@ public class WebSecurityConfig {
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		final String sqlUserName = "SELECT u.user_name, u.user_pass, u.enable FROM user u WHERE u.user_name = ?";
-		final String sqlAuthorities = "SELECT ur.user_name, ur.user_role FROM user_role ur WHERE ur.user_name = ?";
+		final String sqlUserName = "SELECT u.USER_NAME, u.USER_PASSWORD, u.ENABLED FROM user_credentials u WHERE u.USER_NAME = ?";
+		final String sqlAuthorities = "SELECT u.USER_NAME, u.USER_ROLE FROM user_credentials u WHERE u.USER_NAME = ?";
 
 		auth.jdbcAuthentication()
 			.dataSource(dataSource)
