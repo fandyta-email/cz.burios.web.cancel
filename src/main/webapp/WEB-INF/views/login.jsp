@@ -3,11 +3,12 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt"%>
 <html>
 <head>
-<title><fmt:bundle basename="messages">
-		<fmt:message key="page.title" />
-	</fmt:bundle></title>
-<link rel="stylesheet" type="text/css"
-	href="<c:url value="/static/css/style.css"/>" />
+	<title>
+		<fmt:bundle basename="messages">
+			<fmt:message key="page.title" />
+		</fmt:bundle>
+	</title>
+	<link rel="stylesheet" type="text/css" href="<c:url value="/static/css/style.css"/>" />
 </head>
 <body>
 	<div id="login-box">

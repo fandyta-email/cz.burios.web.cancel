@@ -1,3 +1,7 @@
+html, body {
+	font-family: Segoe UI;
+	font-size: 14px;
+} 
 .error {
 	padding: 15px;
 	margin-bottom: 20px;

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/")
-public class SpringSecurityController implements MessageSourceAware {
+public class SecurityController implements MessageSourceAware {
 
 	private MessageSource messageSource;
 

@@ -33,10 +33,8 @@ public class WebSecurityConfig {
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-			.antMatchers("/admin")								// Ensures that request with "/admin" to
-																// our application requires the user to be authenticated
-			.access("hasRole('ADMIN')")							// Any URL that starts with "/admin" will
-																// be restricted to users who have the role "ROLE_ADMIN",
+			.antMatchers("/admin").access("hasRole('ADMIN')")
+			.anyRequest().permitAll()
 			.and()
 			.formLogin()										// Allows users to authenticate with form based login,
 			.loginPage("/login")								// specifies the location of the log in page,
