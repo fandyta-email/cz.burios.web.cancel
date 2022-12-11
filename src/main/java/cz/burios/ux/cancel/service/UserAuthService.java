@@ -21,6 +21,7 @@ public class UserAuthService implements UserDetailsService {
 
 	@Override
 	public org.springframework.security.core.userdetails.UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// System.out.println("UserAuthService.loadUserByUsername( START )");
 		UserDetails userDetails = userDao.getUser(username);
 		if (userDetails == null) { // should have proper handling of Exception
 			throw new UsernameNotFoundException("User '" + username + "' not found.");
