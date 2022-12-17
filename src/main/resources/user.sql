@@ -16,11 +16,10 @@ ENGINE=MyISAM
 ;
 
 /*Data for the table `user_credentials` */
-INSERT  INTO `user_credentials`(`ID`, `USER_ID`, `USER_NAME`,`USER_PASSWORD`, `ENABLED`) VALUES (
+INSERT  INTO `user_credentials`(`ID`, `USER_ID`, `USER_NAME`,`USER_PASSWORD`,`USER_ROLE`, `ENABLED`) VALUES (
   'US01_A0000000000', 
   'US00_A0000000000', 
   'roy', '$2a$12$PN0MjtyNGWW.AjWdIuYKxe4.4Grjs4K7oanuAnt/WSDSvFlUc3eQi',
   'ROLE_ADMIN',
   1
 );
-

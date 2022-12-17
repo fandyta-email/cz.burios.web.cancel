@@ -9,15 +9,16 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
 
-	@Autowired
-	private DataSource dataSource;
-
+	@Autowired private DataSource dataSource;
+	@Autowired private PasswordEncoder passwordEncoder;
+	
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		final String sqlUserName = "SELECT u.USER_NAME, u.USER_PASSWORD, u.ENABLED FROM user_credentials u WHERE u.USER_NAME = ?";
@@ -27,7 +28,7 @@ public class WebSecurityConfig {
 			.dataSource(dataSource)
 			.usersByUsernameQuery(sqlUserName)
 			.authoritiesByUsernameQuery(sqlAuthorities)
-			.passwordEncoder(new BCryptPasswordEncoder());
+			.passwordEncoder(passwordEncoder);
 	}
 
 	@Bean

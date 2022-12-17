@@ -5,7 +5,7 @@
 
 	<groupId>cz.burios.web</groupId>
 	<artifactId>cz.burios.web.cancel</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.22.4-SNAPSHOT</version>
 	<packaging>war</packaging>
 
 	<properties>
