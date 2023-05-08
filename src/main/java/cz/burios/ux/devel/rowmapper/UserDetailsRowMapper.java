@@ -1,13 +1,13 @@
-package cz.burios.ux.cancel.rowmapper;
+package cz.burios.ux.devel.rowmapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import cz.burios.ux.cancel.model.UserDetails;
+import cz.burios.ux.devel.model.UserDetails;
 
-public class UserRowMapper implements RowMapper<UserDetails> {
+public class UserDetailsRowMapper implements RowMapper<UserDetails> {
 
 	@Override
 	public UserDetails mapRow(ResultSet rs, int row) throws SQLException {

@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 <head>
@@ -20,13 +19,9 @@
 			</fmt:bundle>
 		</a>
 		<a href="${pageContext.request.contextPath}/admin" 
-			class="w3-bar-item w3-button w3-right w3-hover-red">
-			Login
-		</a>
+			class="w3-bar-item w3-button w3-right w3-hover-red">Login</a>
 		<a href="${pageContext.request.contextPath}/auth/user_registration" 
-			class="w3-bar-item w3-button w3-right w3-hover-red">
-			Registrace
-		</a>		
+			class="w3-bar-item w3-button w3-right w3-hover-red">Registrace</a>		
 	</div>
 	<div align="center">
 		<h1>
@@ -39,7 +34,6 @@
 				<fmt:message key="page.goto.admin" />
 			</fmt:bundle>
 		</a>
-		<br>
 	</div>
 </body>
 </html>

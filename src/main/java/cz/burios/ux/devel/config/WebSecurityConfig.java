@@ -1,4 +1,4 @@
-package cz.burios.ux.cancel.config;
+package cz.burios.ux.devel.config;
 
 import javax.sql.DataSource;
 
@@ -9,7 +9,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -17,7 +16,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class WebSecurityConfig {
 
 	@Autowired private DataSource dataSource;
-	@Autowired private PasswordEncoder passwordEncoder;
+	@Autowired private BCryptPasswordEncoder passwordEncoder;
 	
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -34,17 +33,18 @@ public class WebSecurityConfig {
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-			.antMatchers("/admin").access("hasRole('ADMIN')")
-			.anyRequest().permitAll()
+			.antMatchers("/admin")
+			.access("hasRole('ADMIN')")
 			.and()
-			.formLogin()										// Allows users to authenticate with form based login,
-			.loginPage("/login")								// specifies the location of the log in page,
-			.loginProcessingUrl("/j_spring_security_check")		// login processing URL,
-			.defaultSuccessUrl("/admin")						// default-target-url,
-			.failureUrl("/login?error")							// authentication-failure-url,
-			.usernameParameter("username")						// overrides Spring's default  j_username with username-parameter,
-			.passwordParameter("password");						// overrides Spring's default j_password with password-parameter
+			.formLogin()
+			.loginPage("/login")
+			.loginProcessingUrl("/j_spring_security_check")
+			.defaultSuccessUrl("/admin")
+			.failureUrl("/login?error")
+			.usernameParameter("username")
+			.passwordParameter("password");
 		
 		return http.build();
 	}
+
 }

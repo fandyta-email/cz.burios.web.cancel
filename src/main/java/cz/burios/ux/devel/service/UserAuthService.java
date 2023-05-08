@@ -1,4 +1,4 @@
-package cz.burios.ux.cancel.service;
+package cz.burios.ux.devel.service;
 
 import java.util.Arrays;
 
@@ -10,19 +10,18 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import cz.burios.ux.cancel.dao.UserDao;
-import cz.burios.ux.cancel.model.UserDetails;
+import cz.burios.ux.devel.dao.UserDetialsDao;
+import cz.burios.ux.devel.model.UserDetails;
 
 @Service
 public class UserAuthService implements UserDetailsService {
 
 	@Autowired
-	private UserDao userDao;
+	private UserDetialsDao userDetialsDao;
 
 	@Override
 	public org.springframework.security.core.userdetails.UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		// System.out.println("UserAuthService.loadUserByUsername( START )");
-		UserDetails userDetails = userDao.getUser(username);
+		UserDetails userDetails = userDetialsDao.getUser(username);
 		if (userDetails == null) { // should have proper handling of Exception
 			throw new UsernameNotFoundException("User '" + username + "' not found.");
 		}

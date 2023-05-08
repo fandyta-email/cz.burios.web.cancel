@@ -1,4 +1,4 @@
-package cz.burios.ux.cancel.config;
+package cz.burios.ux.devel.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -7,7 +7,7 @@ public class MvcWebApplicationInitializer extends AbstractAnnotationConfigDispat
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
 		return new Class[] {
-			WebSecurityEncoderConfig.class,
+			DBConfig.class,
 			WebSecurityConfig.class,
 			WebMvcConfig.class
 		};

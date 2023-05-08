@@ -1,4 +1,4 @@
-package cz.burios.ux.cancel.model;
+package cz.burios.ux.devel.model;
 
 public class UserDetails {
 
